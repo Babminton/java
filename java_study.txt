@@ -1,0 +1,191 @@
+package 登陆01;
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.KeyStroke;
+import javax.swing.border.Border;
+
+public class GUI extends JFrame implements ActionListener {
+	//框架集
+	JFrame jf1;
+	//面板集合
+	JPanel jp1,jp2,jp3,jp4,jp5,jp6;  
+	
+	//标签集
+	JLabel jL1,user_qq,user_pasword,img01;
+	//文本框 J
+	JTextField jt1,jt2,jt3,jt4;
+	//文本框
+	TextField t1;
+	//按钮
+	JButton jb1,jb2,jb3,jb4,jb5; 
+	//定义菜单栏 
+	JMenuBar jMenuBar;
+	//定义菜单
+	JMenu username,system;
+	//定义菜单项
+	JMenuItem manage1,client1,exit;
+	
+	Container con=this.getContentPane();  //内容面板
+    public GUI() {
+    	super("QQ登陆");
+    	setBounds(400,200,400,300);
+    	setDefaultCloseOperation(EXIT_ON_CLOSE);
+    	
+    	con.setLayout(new BorderLayout());
+    	
+    	jMenuBar=new JMenuBar();
+    	username=new JMenu("用户类别");
+    	system=new JMenu("系统管理");
+    	   	
+    	manage1=new JMenuItem("管理员  登陆or注册(A)");
+    	manage1.setAccelerator(KeyStroke.getKeyStroke((char) KeyEvent.VK_A,ActionEvent.CTRL_MASK));
+    	client1=new JMenuItem("客户  登陆or注册(B)");
+    	client1.setAccelerator(KeyStroke.getKeyStroke((char) KeyEvent.VK_B,ActionEvent.CTRL_MASK));
+    	
+    	exit=new JMenuItem("退出(D)");
+    	exit.setAccelerator(KeyStroke.getKeyStroke((char) KeyEvent.VK_D,ActionEvent.CTRL_MASK));
+  //  	JMenuItem respect=new JMenuItem("切换用户");
+    	
+    	username.add(manage1);
+    	username.add(client1);
+    	
+    	system.add(exit);
+    	
+    	jMenuBar.add(username);
+    	jMenuBar.add(system);
+    	
+    	jp1=new JPanel();
+    	
+    	jL1=new JLabel("欢迎使用");
+    	jL1.setFont(new Font("楷体",Font.BOLD, 50));
+    	
+    	jp1.add(jL1);
+    //	jp1.setLocation(200,200);
+    	
+    	setVisible(true);
+    	
+        
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	con.add(jMenuBar,BorderLayout.NORTH);
+    	con.add(jp1);
+    //    con.add(jp2);
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+ //   	jp1.setVisible(true);
+    	
+    	manage1.addActionListener(this);
+    	client1.addActionListener(this);
+    	exit.addActionListener(this);
+    	 
+    	
+    			
+    	
+    	
+    }
+
+	public void actionPerformed(ActionEvent e) {
+		Object obj=e.getSource();
+		if (obj==manage1) { 
+		  Manage();
+		}if (obj==jb1) {
+			Jb1();
+		}
+				
+		
+		
+	}
+	public void Manage() {
+		jf1=new JFrame("管理员登陆页面");
+		jf1.setBounds(400, 200, 300, 350);
+		jf1.setDefaultCloseOperation(jf1.EXIT_ON_CLOSE);
+		Container con2=new Container();
+	    con2.setLayout(new BorderLayout());
+		jp2=new JPanel();
+		jp3=new JPanel();	
+		jp4=new JPanel();
+		jp5=new JPanel();
+		jp6=new JPanel();
+				
+		jp2.setLayout(new FlowLayout());
+		jp3.setLayout(new FlowLayout());
+		jp4.setLayout(new FlowLayout());
+    	user_qq=new JLabel("QQ账号:");
+    	user_pasword=new JLabel("密  码:");   	
+    	jt1=new JTextField(10);
+    	t1=new TextField(15);
+    	t1.setEchoChar('*');
+    	
+    	jb1 =new JButton("登陆");   //管理员登陆
+    	jb2 =new JButton("注册");   //管理员注册
+    	jb3=new JButton("忘记密码");
+    	
+    	
+    	
+    	img01=new JLabel(new ImageIcon("src/企鹅01.jpg"));
+    	img01.setBounds(0, 0, 50, 50);
+    	jp2.add(user_qq);
+    	jp2.add(jt1);
+    	jp3.add(user_pasword);
+    	jp3.add(t1);
+    	jp4.add(jb1);
+    	jp4.add(jb2);
+     	jp4.add(jb3);
+    	         
+    	
+    	//此处增加图片
+    	//将jp2,jp3和成jp5
+    	jp5.add(jp2);
+    	jp5.add(jp3);
+    	jp6.add(img01);
+    	con2.add(jp6,BorderLayout.NORTH);
+		con2.add(jp5,BorderLayout.CENTER);
+		con2.add(jp4,BorderLayout.SOUTH);
+		
+    	jf1.add(con2);
+    	jf1.setVisible(true);
+    	
+    	jb1.addActionListener(this);
+    	jb2.addActionListener(this);
+    	jb3.addActionListener(this);
+		
+	}
+	public void Jb1() {  
+		
+		
+	}
+	public static void main(String[] args) {
+		GUI gui=new GUI();
+		
+
+	}
+
+}
