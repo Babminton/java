@@ -24,18 +24,18 @@ import javax.swing.border.Border;
 
 public class GUI extends JFrame implements ActionListener {
 	//框架集
-	JFrame jf1;
+	JFrame jf1,jf2;
 	//面板集合
-	JPanel jp1,jp2,jp3,jp4,jp5,jp6;  
+	JPanel jp1,jp2,jp3,jp4,jp5,jp6,jp7,jp8,jp9,jp10,jp11;  
 	
 	//标签集
-	JLabel jL1,user_qq,user_pasword,img01;
+	JLabel jL1,user_qq,user_pasword,img01  ,user_qq02,user_pasword02,img02;
 	//文本框 J
-	JTextField jt1,jt2,jt3,jt4;
+	JTextField jt1,   jt2,jt3,jt4;
 	//文本框
-	TextField t1;
+	TextField t1, t2;
 	//按钮
-	JButton jb1,jb2,jb3,jb4,jb5; 
+	JButton jb1,jb2,jb3,jb4,jb5,jb6; 
 	//定义菜单栏 
 	JMenuBar jMenuBar;
 	//定义菜单
@@ -118,6 +118,15 @@ public class GUI extends JFrame implements ActionListener {
 		  Manage();
 		}if (obj==jb1) {
 			Jb1();
+		}if (obj==jb2) {
+			Jb2();
+		}if (obj==jb3) {
+			Jb3();
+		}
+		if(obj== client1) {
+			Client1();
+			
+			
 		}
 				
 		
@@ -182,6 +191,61 @@ public class GUI extends JFrame implements ActionListener {
 		
 		
 	}
+	public void Jb2() {
+		
+		
+	}
+   public void Jb3() {
+	   
+	   
+	   
+   }
+   public void Client1() {
+	    jf2=new JFrame("客户登陆页面");
+		jf2.setBounds(400, 200, 300, 350);
+		jf2.setDefaultCloseOperation(jf2.EXIT_ON_CLOSE);
+		Container con3=new Container();  
+	    con3.setLayout(new BorderLayout());
+		jp7=new JPanel();
+		jp8=new JPanel();
+		jp9=new JPanel();
+		jp10=new JPanel();
+		jp11=new JPanel(); 
+		jp8.setLayout(new FlowLayout());
+		jp9.setLayout(new FlowLayout());
+		jp11.setLayout(new FlowLayout());
+		img02=new JLabel(new ImageIcon("src/企鹅01.jpg"));
+    	img02.setBounds(0, 0, 50, 50);
+    	user_qq02=new JLabel("QQ:");
+    	jt2=new JTextField(15); 
+    	
+    	user_pasword02=new JLabel("密码");
+    	t2=new TextField(20);
+    	t2.setEchoChar('*');
+    	
+    	jb4=new JButton("自动登陆");
+    	jb5=new JButton("注册账号");
+    	jb6=new JButton("登陆");
+    	
+    	jp7.add(img02);
+    	jp8.add(user_qq02);
+    	jp8.add(jt2);
+    	jp9.add(user_pasword02);
+    	jp9.add(t2);
+    	jp10.add(jp8);
+    	jp10.add(jp9);
+    	jp11.add(jb4);  //按钮
+    	jp11.add(jb5);
+    	jp11.add(jb6);
+    	con3.add(jp7,BorderLayout.NORTH);
+    	con3.add(jp10,BorderLayout.CENTER);
+    	con3.add(jp11,BorderLayout.SOUTH);
+    	
+    	jf2.add(con3);
+    	jf2.setVisible(true);
+    	
+	    
+   }
 	public static void main(String[] args) {
 		GUI gui=new GUI();
 		
